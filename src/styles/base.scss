@@ -1,0 +1,36 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--color-dark);
+  color: white;
+  font-family: $font-sans; /* Inter → system-ui fallback */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Example card component
+.card {
+  @include glass(6px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  @include neon-border;
+}
+
+// Example button
+.btn-primary {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  background: var(--color-neon);
+  color: black;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    @include neon-border;
+  }
+}

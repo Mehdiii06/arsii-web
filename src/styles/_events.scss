@@ -1,0 +1,97 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.events {
+  padding: 5rem 2rem;
+  background: var(--color-dark);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    h2 {
+      font-family: $font-display;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--color-neon);
+      text-shadow: 0 0 12px var(--color-neon);
+    }
+    p {
+      opacity: 0.85;
+      color: var(--color-light);
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .e-card {
+    @include glass(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    padding: 1rem 1.25rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 0 18px rgba(0, 247, 255, 0.25);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 0 26px var(--color-neon),
+        0 0 42px var(--color-pink);
+    }
+
+    .info {
+      .title {
+        font-weight: 600;
+      }
+      .subtitle {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    }
+
+    .badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      @include flex-center;
+      flex-direction: column;
+      line-height: 1;
+
+      .day {
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+      .month {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin-top: -2px;
+      }
+      .year {
+        font-size: 0.65rem;
+        opacity: 0.65;
+      }
+    }
+  }
+}

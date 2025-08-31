@@ -1,0 +1,79 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.blog {
+  padding: 5rem 2rem;
+  background: var(--color-dark);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    h2 {
+      font-family: $font-display;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--color-neon);
+      text-shadow: 0 0 12px var(--color-neon);
+    }
+    p {
+      opacity: 0.85;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .post {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    color: white;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 18px rgba(0, 247, 255, 0.25);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 26px var(--color-neon),
+        0 0 42px var(--color-pink);
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .title {
+      margin-top: 0.35rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .author {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+  }
+
+  /* Right column stack */
+  .stack {
+    display: grid;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,44 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.footer {
+  background: var(--color-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.25rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-family: $font-display;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--color-neon);
+    text-shadow: 0 0 10px var(--color-neon);
+  }
+
+  .legal {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

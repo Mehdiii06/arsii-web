@@ -1,0 +1,39 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Page container
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Section wrapper
+.section {
+  padding: 4rem 0;
+}
+
+// Section with background
+.section-dark {
+  background: var(--color-dark);
+  color: white;
+}
+
+.section-light {
+  background: #ffffff;
+  color: var(--color-dark);
+}
+
+// Grid helpers
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}

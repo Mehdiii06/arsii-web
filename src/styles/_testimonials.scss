@@ -1,0 +1,91 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.testimonials {
+  padding: 5rem 2rem;
+  background: var(--color-dark);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-family: $font-display;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--color-neon);
+      text-shadow: 0 0 12px var(--color-neon);
+      margin: 0 0 0.5rem;
+    }
+
+    p {
+      opacity: 0.85;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .t-card {
+    @include glass(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+    box-shadow: 0 0 18px rgba(0, 247, 255, 0.25);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 26px var(--color-neon),
+        0 0 42px var(--color-pink);
+    }
+
+    .quote {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          var(--color-neon),
+          var(--color-pink)
+        );
+        box-shadow: 0 0 10px var(--color-neon);
+      }
+
+      .meta {
+        .name {
+          font-weight: 600;
+        }
+        .role {
+          font-size: 0.85rem;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

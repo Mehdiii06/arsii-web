@@ -1,0 +1,25 @@
+// Flex utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Glassmorphism
+@mixin glass($blur: 8px) {
+  background: var(--color-glass);
+  backdrop-filter: blur($blur);
+}
+
+// Neon border
+@mixin neon-border($color1: #00f7ff, $color2: #ff00d4) {
+  box-shadow:
+    0 0 20px $color1,
+    0 0 40px $color2;
+}

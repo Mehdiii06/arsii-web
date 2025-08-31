@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.hero {
+  @include flex-center;
+  flex-direction: column;
+  text-align: center;
+  padding: 6rem 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0.95) 0%,
+    rgba(10, 10, 15, 1) 100%
+  );
+
+  h1 {
+    font-family: $font-display;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--color-neon);
+    text-shadow:
+      0 0 20px var(--color-neon),
+      0 0 40px var(--color-pink);
+  }
+
+  p {
+    max-width: 700px;
+    font-size: 1.2rem;
+    color: var(--color-light);
+    margin-bottom: 2rem;
+  }
+
+  .btn-cta {
+    background: var(--color-neon);
+    color: var(--color-dark);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--color-neon);
+
+    &:hover {
+      background: var(--color-pink);
+      box-shadow:
+        0 0 20px var(--color-pink),
+        0 0 40px var(--color-neon);
+      color: white;
+    }
+  }
+}

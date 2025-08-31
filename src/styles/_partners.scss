@@ -1,0 +1,58 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.partners {
+  padding: 3rem 1rem;
+  background: var(--color-dark);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    text-align: center;
+    font-family: $font-display;
+    color: var(--color-neon);
+    text-shadow: 0 0 10px var(--color-neon);
+    margin-bottom: 1.25rem;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .logo {
+    @include glass(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.85rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0.8;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 0 16px rgba(0, 247, 255, 0.18);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 0 20px var(--color-neon),
+        0 0 30px var(--color-pink);
+      opacity: 1;
+    }
+
+    img {
+      max-height: 38px;
+      max-width: 80%;
+      object-fit: contain;
+    }
+  }
+}
