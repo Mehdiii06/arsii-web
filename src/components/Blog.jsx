@@ -21,7 +21,6 @@ export default function Blog() {
           <div className="stack">
             {posts.slice(1).map((p, i) => (
               <article className="post" key={i}>
-                <div className="tag">{p.tag}</div>
                 <div className="title">{p.title}</div>
                 <div className="author">{p.author}</div>
               </article>

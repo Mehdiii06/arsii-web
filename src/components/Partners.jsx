@@ -1,25 +1,27 @@
-const LOGOS = [
-  // Replace with your real paths in /public/logos
-  "/logos/logo1.svg",
-  "/logos/logo2.svg",
-  "/logos/logo3.svg",
-  "/logos/logo4.svg",
-  "/logos/logo5.svg",
-  "/logos/logo6.svg",
-];
+import logo from "../assets/arsii-logo.svg";
+
+const LOGOS = [logo, logo, logo, logo, logo, logo, logo, logo];
 
 export default function Partners() {
+  const logosLoop = [...LOGOS, ...LOGOS];
+
   return (
     <section className="partners">
       <div className="container">
-        <h3>Our Partners</h3>
-        <div className="logo-grid">
-          {LOGOS.map((src, i) => (
-            <div className="logo" key={i}>
-              {/* fallback if image not found */}
-              {src ? <img src={src} alt={`Partner ${i + 1}`} /> : "Logo"}
-            </div>
-          ))}
+        <div className="heading">
+          <h2>Our Partners</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur.</p>
+        </div>
+
+        {/* slider wrapper */}
+        <div className="logo-slider">
+          <div className="logo-track">
+            {logosLoop.map((src, i) => (
+              <div className="logo" key={i}>
+                <img src={src} alt={`Partner ${i + 1}`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
