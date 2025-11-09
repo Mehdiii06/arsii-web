@@ -1,0 +1,15 @@
+[build]
+  command = "vite build"
+  publish = "dist"
+
+# SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: cache static assets aggressively
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
