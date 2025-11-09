@@ -1,0 +1,40 @@
+/* Light (default) */
+:root {
+  /* neutrals */
+  --bg: #0b0f12; /* you can raise for true light */
+  --surface: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.78);
+  --divider: rgba(255, 255, 255, 0.12);
+
+  /* brand/neon */
+  --neon: #7cf8e5;
+  --neon-2: #3de0d0;
+
+  /* hero background images per theme (can be same initially) */
+  --hero-bg: url("/backgrounds/hero-dark.png");
+}
+
+/* Dark overrides */
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --surface: rgba(255, 255, 255, 0.1);
+  --text: #ffffff;
+  --text-muted: rgba(234, 254, 254, 0.9);
+  --divider: rgba(255, 255, 255, 0.12);
+  --neon: #7cf8e5;
+  --neon-2: #3de0d0;
+  --hero-bg: url("/backgrounds/hero-dark.png");
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg: #f7fafb;
+  --surface: rgba(0, 0, 0, 0.06);
+  --text: #0b1220;
+  --text-muted: rgba(11, 18, 32, 0.72);
+  --divider: rgba(6, 13, 24, 0.12);
+  --neon: #10b5a6;
+  --neon-2: #0aa99a;
+  --hero-bg: url("/backgrounds/hero-light.png");
+}

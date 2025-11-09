@@ -1,19 +1,27 @@
+@use "tokens";
+@use "variables" as *;
+@use "mixins" as *;
+
 .card {
   @include glass;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--divider);
   border-radius: 1rem;
   padding: 1.5rem;
   @include neon-border;
 }
 
 .btn-primary {
-  background: var(--color-neon);
-  color: black;
+  background: linear-gradient(180deg, var(--neon) 0%, var(--neon-2) 100%);
+  color: #001c1c;
   padding: 0.5rem 1rem;
   border-radius: 0.75rem;
   font-weight: 500;
-  transition: 0.2s;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+
   &:hover {
     @include neon-border;
+    transform: translateY(-1px);
   }
 }

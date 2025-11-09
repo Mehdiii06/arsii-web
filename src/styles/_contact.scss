@@ -1,0 +1,184 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.contact {
+  padding: 5rem 1rem 4rem;
+  background: var(--bg);
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-family: $font-display;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 40px);
+      line-height: 60px;
+      margin: 0;
+      background: linear-gradient(90deg, #61e0d4 0%, #354444 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+
+  .c-wrap {
+    display: flex;
+    padding: 0 9rem;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .c-text {
+    h2 {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display, #{$font-display});
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px color-mix(in oklab, var(--neon) 35%, transparent);
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+    }
+    p {
+      color: var(--text-muted);
+    }
+  }
+
+  .wrap__left {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.5rem 5rem;
+    border-radius: 20px 0 0 20px;
+    background: var(--hero-bg) center / cover no-repeat;
+    max-height: 28rem;
+
+    h5 {
+      font-family: var(--font-display, #{$font-display});
+      font-weight: 500;
+      font-style: Medium;
+      font-size: 24px;
+      line-height: 26px;
+      letter-spacing: 0%;
+      margin: 0;
+    }
+
+    h3 {
+      font-family: var(--font-display, #{$font-display});
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 32px;
+      line-height: 64px;
+      letter-spacing: 0%;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-family: var(--font-display, #{$font-display});
+      font-weight: 400;
+      font-style: regular;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: 70%;
+      margin: 0.5rem 0;
+    }
+
+    img {
+      height: 56px;
+      width: auto;
+      display: block;
+      justify-content: flex-start;
+      margin: 3rem 0;
+    }
+  }
+
+  .c-form {
+    flex: 0.4;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 4rem 2rem;
+    border-radius: 22px;
+    border: 1px solid var(--brand-primary);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in oklab, var(--brand-primary) 20%, transparent),
+      0 14px 40px rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+
+    input,
+    textarea {
+      width: calc(100% - 2rem);
+      background: color-mix(in oklab, var(--bg) 55%, transparent);
+      color: var(--text);
+      border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+      border-radius: 18px;
+      padding: 0.75rem 0.9rem;
+      outline: none;
+      transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+      font-family: inherit;
+
+      &:focus {
+        border-color: color-mix(
+          in oklab,
+          var(--brand-primary) 95%,
+          transparent
+        );
+      }
+      &::placeholder {
+        color: color-mix(in oklab, var(--neon) 55%, transparent);
+      }
+    }
+
+    textarea {
+      resize: none;
+      min-height: auto;
+      line-height: 1.5rem;
+      height: calc(1.5rem * 5 + 1.5rem);
+    }
+
+    textarea::-webkit-scrollbar {
+      display: none;
+    }
+
+    .actions {
+      width: 100%;
+
+      .btn-primary {
+        width: 100%;
+        background: linear-gradient(180deg, var(--neon) 0%, var(--neon-2) 100%);
+        color: var(--button-text-dark);
+        border: none;
+        border-radius: 18px;
+        padding: 0.9rem 1.2rem;
+        font-weight: 700;
+        box-shadow: 0 4px 9px var(--neon);
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 36px
+            color-mix(in oklab, var(--neon-2) 50%, transparent);
+        }
+      }
+    }
+  }
+}

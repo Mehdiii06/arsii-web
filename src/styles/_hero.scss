@@ -2,52 +2,245 @@
 @use "mixins" as *;
 
 .hero {
-  @include flex-center;
-  flex-direction: column;
+  position: relative;
   text-align: center;
-  padding: 6rem 1rem;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 15, 0.95) 0%,
-    rgba(10, 10, 15, 1) 100%
-  );
+  background-repeat: no-repeat;
 
-  h1 {
-    font-family: $font-display;
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--color-neon);
-    text-shadow:
-      0 0 20px var(--color-neon),
-      0 0 40px var(--color-pink);
+  .hero__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  p {
-    max-width: 700px;
-    font-size: 1.2rem;
-    color: var(--color-light);
-    margin-bottom: 2rem;
+  .hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .hero__kicker {
+      margin: 10rem 0 18px;
+      font-family: var(--font-sans, #{$font-sans});
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+
+      .txt-grad-1 {
+        background: linear-gradient(
+          90deg,
+          var(--title-grad-alt-start),
+          var(--title-grad-alt-end)
+        );
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      strong {
+        font-weight: 500;
+      }
+    }
+
+    .hero__title {
+      font-family: var(--font-display, #{$font-display});
+      font-size: 52px;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+
+      .word-innovate,
+      .word-lead {
+        display: block;
+        font-weight: 700;
+        font-size: 58px;
+        margin: 0;
+        padding: 0 5px;
+        background: linear-gradient(
+          90deg,
+          var(--title-grad-alt-start),
+          var(--title-grad-alt-end)
+        );
+        background-size: 100% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .word-innovate {
+        font-style: italic;
+      }
+      .word-lead {
+        font-style: normal;
+      }
+    }
+
+    .gradient-title {
+      font-family: var(--font-display, #{$font-display});
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 60px;
+      background: linear-gradient(
+        90deg,
+        var(--title-grad-alt-start),
+        var(--title-grad-alt-end)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero__cta {
+      margin: 1rem;
+    }
   }
 
   .btn-cta {
-    background: var(--color-neon);
-    color: var(--color-dark);
-    font-weight: 600;
-    padding: 0.75rem 2rem;
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    margin: 2.5rem 0;
     border-radius: 999px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px var(--color-neon);
+    font-weight: 700;
+    color: var(--button-text-dark);
+    background: linear-gradient(
+      180deg,
+      var(--brand-primary) 0%,
+      var(--brand-secondary) 100%
+    );
+    box-shadow: 0 4px 9px var(--neon);
+    text-decoration: none;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
 
     &:hover {
-      background: var(--color-pink);
-      box-shadow:
-        0 0 20px var(--color-pink),
-        0 0 40px var(--color-neon);
-      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 36px
+        color-mix(in oklab, var(--brand-secondary) 50%, transparent);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &.hero--with-bg {
+    margin-top: calc(var(--header-h, 72px) * -1);
+    padding-top: var(--header-h, 72px);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--hero-bg) center / cover no-repeat;
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  .hero__about {
+    margin: 2.2rem auto 0;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: stretch;
+    justify-content: space-between;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 26px;
+    border: 1px solid var(--brand-primary);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in oklab, var(--brand-primary) 20%, transparent),
+      0 14px 40px rgba(0, 0, 0, 0.45);
+    padding: 3rem 3.5rem;
+    outline-offset: -6px;
+
+    .hero__about-copy {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 20px;
+        font-weight: 300;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: 0.2px;
+        text-align: justify;
+        text-align-last: left;
+      }
+    }
+
+    .hero__about-brand {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .hero__about-brand__img {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        img {
+          max-width: 340px;
+          width: 100%;
+          height: auto;
+          filter: drop-shadow(
+            0 12px 28px
+              color-mix(in oklab, var(--brand-primary) 28%, transparent)
+          );
+        }
+      }
+
+      .hero__about-brand__link {
+        display: flex;
+        justify-content: flex-end;
+        .learn {
+          display: flex;
+          align-items: center;
+          color: var(--text);
+          text-decoration: none;
+          font-weight: 300;
+          font-style: normal;
+          opacity: 0.9;
+          transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+          .arrow {
+            margin: 0 0.7rem;
+            font-size: 24px;
+          }
+          &:hover {
+            opacity: 1;
+            transform: translateX(2px);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1060px) {
+    padding: 1.2rem 1.2rem 1.4rem;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .hero__about-copy,
+    .hero__about-brand {
+      align-items: flex-start;
+    }
+    .hero__about-brand__img img {
+      max-width: 220px;
     }
   }
 }

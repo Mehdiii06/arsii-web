@@ -2,33 +2,42 @@
 @use "mixins" as *;
 
 .events {
-  padding: 5rem 2rem;
-  background: var(--color-dark);
+  padding: 2rem 0;
+  background: var(--bg);
 
   .container {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
   }
 
   .heading {
     text-align: center;
     margin-bottom: 2rem;
+
     h2 {
       font-family: $font-display;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--color-neon);
-      text-shadow: 0 0 12px var(--color-neon);
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 40px);
+      line-height: 60px;
+      margin: 0;
+      background: linear-gradient(90deg, #61e0d4 0%, #354444 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
+
     p {
-      opacity: 0.85;
-      color: var(--color-light);
+      margin: 0;
+      color: var(--text-muted);
     }
   }
 
   .grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2rem;
+    margin: 4rem 0 2rem 0;
+    // padding: 0;
   }
   @media (min-width: 900px) {
     .grid {
@@ -38,59 +47,98 @@
 
   .e-card {
     @include glass(8px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 1.25rem;
-    padding: 1rem 1.25rem;
-    color: white;
+    border: 0px;
+    padding: 2rem;
+    min-height: 220px;
+    max-height: 220px;
+    color: var(--text);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-    box-shadow: 0 0 18px rgba(0, 247, 255, 0.25);
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       box-shadow:
-        0 0 26px var(--color-neon),
-        0 0 42px var(--color-pink);
+        0 4px 8px rgba(0, 0, 0, 0.35),
+        0 0 10px color-mix(in oklab, var(--neon) 45%, transparent),
+        0 0 18px color-mix(in oklab, var(--neon-2) 35%, transparent);
     }
 
     .info {
+      display: flex;
+      flex: 0.6;
       .title {
-        font-weight: 600;
-      }
-      .subtitle {
-        font-size: 0.9rem;
-        opacity: 0.8;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        color: var(--text);
       }
     }
 
     .badge {
-      width: 64px;
-      height: 64px;
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: color-mix(in oklab, var(--surface) 92%, transparent);
       @include flex-center;
       flex-direction: column;
       line-height: 1;
 
-      .day {
-        font-size: 1.25rem;
-        font-weight: 800;
-      }
-      .month {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        opacity: 0.85;
-        margin-top: -2px;
+      .badge__top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 8px;
+        border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+        gap: 0.3rem;
+
+        .day {
+          font-size: 32px;
+          font-weight: 700;
+          color: var(--text);
+        }
+        .month {
+          font-size: 1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: var(--text-muted);
+          margin-top: -2px;
+        }
       }
       .year {
-        font-size: 0.65rem;
-        opacity: 0.65;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        // color: color-mix(in oklab, var(--text) 12%, transparent);
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 2rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: var(--text);
+      opacity: 0.85;
+      text-decoration: none;
+      font-weight: 600;
+
+      .arrow {
+        margin-left: 0.7rem;
+        font-size: 24px;
+      }
+
+      &:hover {
+        opacity: 1;
+        text-decoration: underline;
       }
     }
   }

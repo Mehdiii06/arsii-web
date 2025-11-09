@@ -1,4 +1,3 @@
-// Flex utilities
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -11,14 +10,12 @@
   align-items: center;
 }
 
-// Glassmorphism
 @mixin glass($blur: 8px) {
-  background: var(--color-glass);
+  background: color-mix(in oklab, var(--surface) 92%, transparent);
   backdrop-filter: blur($blur);
 }
 
-// Neon border
-@mixin neon-border($color1: #00f7ff, $color2: #ff00d4) {
+@mixin neon-border($color1: var(--neon), $color2: var(--neon-2)) {
   box-shadow:
     0 0 20px $color1,
     0 0 40px $color2;

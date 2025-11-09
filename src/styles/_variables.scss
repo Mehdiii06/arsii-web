@@ -1,14 +1,139 @@
 :root {
-  --color-dark: #0a0a0f;
-  --color-neon: #00f7ff;
-  --color-pink: #ff00d4;
-  --color-light: #e6f7ff;
-  --color-glass: rgba(255, 255, 255, 0.08);
+  /* layout */
+  --header-h: 72px;
+
+  /* font family tokens */
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+
+  /* base theme defaults (dark by default) */
+  --bg: #011615;
+  --bg2: #1b2323;
+  --surface: #000d0c;
+  --bg-black: #000101;
+  --text: #ffffff;
+  --text-muted: rgba(234, 254, 254, 0.9);
+  --divider: rgba(255, 255, 255, 0.12);
+
+  --neon: #61e0d4; /* accent border + buttons + gradients */
+  --neon-2: #38b5a9; /* secondary accent */
+  --color-secondary: #354444;
+
+  --color-primary: #61e0d4;
+  --color-dark: #011615;
+  --color-muted: #354444;
+  --color-surface: #000d0c;
+
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.75);
+
+  --button-text-dark: #252525;
+
+  --hero-bg: none;
+
+  /* Brand identity */
+  --brand-primary: var(--neon); /* #61E0D4 */
+  --brand-secondary: var(--neon-2); /* #38B5A9 */
+
+  /* Title gradients */
+  --title-grad-start: #61e0d4;
+  --title-grad-end: #354444;
+  --title-grad-alt-start: #ffffff;
+  --title-grad-alt-end: #7c7c7c;
+
+  /* 🔹 Juniors palette */
+  --juniors-primary: #dbe11f; /* button + accent yellow */
+  --juniors-grad-start: #5cd32e; /* card gradient top */
+  --juniors-grad-end: #034649; /* card gradient bottom */
+
+  /* Glow shadows for juniors */
+  --shadow-juniors-card: 0 4px 55px rgba(219, 225, 31, 0.25);
+  --shadow-juniors-btn: 0 4px 14px rgba(219, 225, 31, 1);
 }
 
+/* Light theme overrides */
+[data-theme="light"] {
+  --bg: #f7fafb;
+  --bg2: #f7fafb;
+  --surface: #ffffff;
+  --bg-black: #ffffff;
+  --text: #0b1220;
+  --text-muted: rgba(11, 18, 32, 0.72);
+  --divider: rgba(6, 13, 24, 0.12);
+
+  --neon: #61e0d4;
+  --neon-2: #38b5a9;
+  --color-secondary: #354444;
+
+  --color-primary: #61e0d4;
+  --color-dark: #f7fafb;
+  --color-muted: #d0d7dc;
+  --color-surface: #ffffff;
+
+  --color-text: #0b1220;
+  --color-text-muted: rgba(11, 18, 32, 0.72);
+
+  --button-text-dark: #252525;
+
+  --hero-bg: none;
+
+  --brand-primary: var(--neon);
+  --brand-secondary: var(--neon-2);
+
+  --title-grad-start: #61e0d4;
+  --title-grad-end: #354444;
+  --title-grad-alt-start: #ffffff;
+  --title-grad-alt-end: #7c7c7c;
+
+  /* 🔹 Juniors light tweaks */
+  --juniors-primary: #c5cc1a;
+  --juniors-grad-start: #8af84a;
+  --juniors-grad-end: #1b6b60;
+}
+
+/* Dark theme explicit */
+[data-theme="dark"] {
+  --bg: #011615;
+  --bg2: #1b2323;
+  --surface: #000d0c;
+  --bg-black: #000101;
+  --text: #ffffff;
+  --text-muted: rgba(234, 254, 254, 0.9);
+  --divider: rgba(255, 255, 255, 0.12);
+
+  --neon: #61e0d4;
+  --neon-2: #38b5a9;
+  --color-secondary: #354444;
+
+  --color-primary: #61e0d4;
+  --color-dark: #011615;
+  --color-muted: #354444;
+  --color-surface: #000d0c;
+
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.75);
+
+  --button-text-dark: #252525;
+
+  --hero-bg: none;
+
+  --brand-primary: var(--neon);
+  --brand-secondary: var(--neon-2);
+
+  --title-grad-start: #61e0d4;
+  --title-grad-end: #354444;
+  --title-grad-alt-start: #ffffff;
+  --title-grad-alt-end: #7c7c7c;
+
+  --juniors-primary: #dbe11f;
+  --juniors-grad-start: #5cd32e;
+  --juniors-grad-end: #034649;
+}
+
+/* Sass fallbacks (if you still prefer to use variables in partials) */
 $font-sans: "Poppins", system-ui, sans-serif;
 $font-display: "Poppins", sans-serif;
 
 $shadow-neon:
-  0 0 20px #00f7ff,
-  0 0 40px #ff00d4;
+  0 0 20px var(--neon),
+  0 0 40px var(--neon-2);

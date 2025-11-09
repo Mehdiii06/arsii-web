@@ -1,0 +1,270 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.join {
+  position: relative;
+  text-align: center;
+  padding: 6rem 1rem 4rem;
+  margin-top: calc(var(--header-h, 72px) * -1);
+  padding-top: var(--header-h, 72px);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 80vh;
+    background: var(--hero-bg) center / cover no-repeat;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .heading {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-family: $font-display;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 40px);
+      line-height: 60px;
+      margin: 0;
+      background: linear-gradient(
+        90deg,
+        var(--title-grad-start),
+        var(--title-grad-end)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow: 0 0 12px
+        color-mix(in oklab, var(--title-grad-start) 35%, transparent);
+    }
+  }
+
+  .join__wrap {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    border-radius: 26px;
+    border: 1px solid var(--brand-primary);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in oklab, var(--brand-primary) 20%, transparent),
+      0 14px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  .step_title {
+    font-family: var(--font-display, #{$font-display});
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    leading-trim: NONE;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-left: 0.75rem;
+  }
+
+  .join__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding-right: 2.5rem;
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 0.75rem;
+      color: var(--text-muted);
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      display: none;
+    }
+
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-clear-button {
+      display: none;
+    }
+
+    &--row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    label {
+      color: var(--text);
+      opacity: 0.85;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      background: color-mix(in oklab, var(--bg) 55%, transparent);
+      color: var(--text);
+      border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+      border-radius: 0.85rem;
+      padding: 0.75rem 0.9rem;
+      outline: none;
+      font-family: inherit;
+      transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+      &:focus {
+        border-color: color-mix(
+          in oklab,
+          var(--brand-primary) 75%,
+          transparent
+        );
+        box-shadow:
+          0 0 0 3px color-mix(in oklab, var(--brand-primary) 22%, transparent),
+          0 0 18px color-mix(in oklab, var(--brand-primary) 25%, transparent)
+            inset;
+      }
+
+      &::placeholder {
+        color: color-mix(in oklab, var(--text) 55%, transparent);
+      }
+    }
+
+    .error-message {
+      display: flex;
+      color: #ff6b6b;
+      font-size: 0.85rem;
+      // margin-top: 0.25rem;
+      // justify-content: flex-start;
+      // align-items: flex-start;
+      padding-left: 0.75rem;
+    }
+  }
+
+  /* Checkbox group */
+  .field--checks {
+    display: grid;
+    gap: 0.6rem;
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+      opacity: 0.9;
+      font-size: 0.95rem;
+      cursor: pointer;
+
+      input[type="checkbox"] {
+        accent-color: var(--brand-primary);
+        width: 1.1rem;
+        height: 1.1rem;
+        cursor: pointer;
+      }
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Radio group */
+  .field--radio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    .radio-options {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text);
+      opacity: 0.9;
+      cursor: pointer;
+
+      input[type="radio"] {
+        accent-color: var(--brand-primary);
+        cursor: pointer;
+      }
+    }
+  }
+
+  /* Select dropdown */
+  .field--select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    select {
+      appearance: none;
+      cursor: pointer;
+    }
+  }
+
+  /* Actions row (Next / Prev / Submit buttons) */
+  .join__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+
+    .btn-primary {
+      background: linear-gradient(
+        180deg,
+        var(--brand-primary) 0%,
+        var(--brand-secondary) 100%
+      );
+      color: var(--button-text-dark);
+      border-radius: 999px;
+      padding: 0.75rem 1.6rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 30px
+        color-mix(in oklab, var(--brand-secondary) 35%, transparent);
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 36px
+          color-mix(in oklab, var(--brand-secondary) 50%, transparent);
+      }
+    }
+  }
+}
