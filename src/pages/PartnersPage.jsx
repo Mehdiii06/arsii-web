@@ -1,9 +1,9 @@
-import { useProjects } from "../data/queries/projects";
+import { usePartners } from "../data/queries/partners";
 import { useI18n } from "../lib/I18nProvider";
 
-export default function ProjectsPage() {
+export default function PartnersPage() {
   const { t, locale } = useI18n();
-  const { data, isLoading, isError } = useProjects();
+  const { data, isLoading, isError } = usePartners();
 
   const items = data?.data ?? [];
 
@@ -11,15 +11,15 @@ export default function ProjectsPage() {
   if (isError) return <p>{t("error", "Something went wrong")}</p>;
 
   return (
-    <section className="projects">
+    <section className="partners">
       <div className="container">
-        <h1>{t("projects.title", "Projects")}</h1>
+        <h1>{t("partners.title", "Partners")}</h1>
 
         {items.length ? (
           <div className="grid">
             {items.map((p) => (
               <div key={p?.id} className="card">
-                <h3>{p?.title?.[locale] ?? p?.title}</h3>
+                <h3>{p?.name?.[locale] ?? p?.name}</h3>
                 {p?.description && (
                   <p>
                     {typeof p.description === "object"
@@ -31,9 +31,10 @@ export default function ProjectsPage() {
             ))}
           </div>
         ) : (
-          <p>{t("projects.empty", "No projects available")}</p>
+          <p>{t("partners.empty", "No partners available")}</p>
         )}
       </div>
     </section>
   );
 }
+
