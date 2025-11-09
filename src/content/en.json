@@ -1,0 +1,125 @@
+{
+  "brand": "ARSII",
+  "loading": "Loading...",
+  "error": "Something went wrong.",
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "events": "Events",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Innovate to Lead",
+    "subtitle": "Association of Scientific Research and Innovation in Computer Science.",
+    "cta": "Get Started"
+  },
+  "features": {
+    "heading": "Awesome Features",
+    "sub": "Neon, performance, animations"
+  },
+  "about": {
+    "heading": "About Our Platform",
+    "text": "Our futuristic app combines speed, innovation, and design. Built with React and SCSS."
+  },
+  "projects": {
+    "heading": "Projects",
+    "sub": "Selected projects and research initiatives.",
+    "all": "All projects"
+  },
+  "events": {
+    "heading": "Events",
+    "sub": "Talks, seminars, meetups, and competitions.",
+    "all": "All events",
+    "title": "Upcoming Events",
+    "empty": "No events available at the moment."
+  },
+  "blog": {
+    "heading": "Recent Posts",
+    "sub": "Insights, updates, and opinion pieces."
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "all_rights": "All rights reserved."
+  },
+  "join": {
+    "title": "Join ARSII",
+    "fullName": "Nom complet",
+    "cin": "CIN",
+    "dob": "Date de naissance",
+    "gender": {
+      "male": "Homme",
+      "female": "Femme"
+    },
+    "email": "Email",
+    "phone": "Téléphone",
+    "org": "Institution / Organisation",
+    "position": "Poste",
+    "interest": "Domaine d'intérêt",
+    "linkedin": "LinkedIn / Portfolio",
+    "office": "Sélectionnez un bureau",
+    "offices": {
+      "tunis": "Tunis",
+      "sfax": "Sfax",
+      "sousse": "Sousse"
+    },
+    "motivation": "Pourquoi voulez-vous rejoindre ARSII ?",
+    "areas": {
+      "label": "Domaines d’intérêt",
+      "ai": "Intelligence Artificielle",
+      "web": "Développement Web",
+      "embedded": "Systèmes Embarqués",
+      "other": "Autre"
+    },
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "agreeNews": "J’accepte de recevoir des communications de l’ARSII",
+    "agreePolicy": "J’accepte la politique de confidentialité",
+    "back": "Retour",
+    "next": "Suivant",
+    "confirm": "Confirmer",
+    "steps": {
+      "1": "Personal Details",
+      "2": "Professional / Academic Details",
+      "3": "ARSII Affiliation & Motivation"
+    },
+    "labels": {
+      "fullName": "Full Name",
+      "cin": "CIN",
+      "dob": "Date of Birth",
+      "gender": "Gender",
+      "email": "Email",
+      "phone": "Phone",
+      "org": "Institution / Organization",
+      "position": "Position",
+      "interest": "Field of Interest",
+      "office": "Select Office",
+      "motivation": "Motivation & Involvement",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "agreeNews": "I agree to receive communications from ARSII",
+      "agreePolicy": "I accept the data privacy policy"
+    },
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "confirm": "Confirm"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Invalid email format",
+      "passwordLength": "Password must be at least 6 characters",
+      "passwordMatch": "Passwords must match",
+      "policy": "You must accept the data privacy policy"
+    }
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "url": "Veuillez saisir une URL valide",
+    "selectOne": "Veuillez sélectionner au moins une option",
+    "passwordMatch": "Les mots de passe doivent correspondre",
+    "mustAccept": "Vous devez accepter la politique de confidentialité"
+  }
+}

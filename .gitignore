@@ -17,6 +17,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
@@ -24,3 +25,21 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Caches and misc
+.eslintcache
+.cache
+coverage
+.npm
+.netlify
+
+# Package manager locks (use yarn)
+package-lock.json
+pnpm-lock.yaml
+npm-shrinkwrap.json
